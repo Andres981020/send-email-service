@@ -33,9 +33,7 @@ public class EnvioCorreoService {
 		
 		
 		Map<String,Object> model = new HashMap<>();
-		
-		model.put("name", "Andres Mosquera");
-		
+				
 		MimeMessage message = mailSender.createMimeMessage();
 		
 		try {
@@ -45,11 +43,12 @@ public class EnvioCorreoService {
 			Template t = config.getTemplate(template);
 			String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
 			
-			helper.setTo("andres981020@gmail.com");
+			helper.setTo("Se agrega el correo detinatario");
 			helper.setText(html, true);
 			helper.setSubject(asunto);
-			helper.setFrom("qualitycolombia.dvp09@gmail.com");
-			helper.addAttachment("hola.pdf", new FileDataSource("E:\\andre\\Documents\\tmp\\MANAGER\\TK\\85059-35401.mng"));
+			helper.setFrom("Se agrega el correo emisor");
+			// Linea para agregar adjuntos al envio de correo
+//			helper.addAttachment("hola.pdf", new FileDataSource("E:\\andre\\Documents\\tmp\\MANAGER\\TK\\85059-35401.mng"));
 			
 			System.out.println(message == null);
 			if(message != null) {
